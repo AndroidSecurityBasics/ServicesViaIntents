@@ -1,0 +1,12 @@
+bin
+gen
+.idea
+*.iml
+out
+*.ipr
+*.iws
+/out
+.DS_Store
+*.patch
+*.properties
+*.txt
