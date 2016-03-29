@@ -13,3 +13,5 @@ out
 *.patch
 *.properties
 *.txt
+*.gradle/2.8/*
+/app/build/*

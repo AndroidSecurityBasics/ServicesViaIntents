@@ -4,10 +4,9 @@ import android.app.IntentService;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.NotificationCompat.Builder;
+import android.support.v4.app.NotificationCompat;
 
 import com.security.basics.app.R;
-
 
 public class MyServices extends IntentService {
 
@@ -26,7 +25,7 @@ public class MyServices extends IntentService {
 
   private void showNotification(String title, String message) {
     final NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-    final Builder builder = new Builder(this);
+    final NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
     builder.setContentTitle(title)
         .setContentText(message)
         .setSmallIcon(R.drawable.ic_launcher);
@@ -34,11 +33,11 @@ public class MyServices extends IntentService {
         new Runnable() {
           @Override
           public void run() {
-            for (int i = 0; i <= 100; i += 5) {
+            for (int i = 0; i <= 10; i += 5) {
               builder.setProgress(100, i, false);
               notificationManager.notify(1, builder.build());
               try {
-                Thread.sleep(5 * 1000);
+                Thread.sleep(5 * 100);
               } catch (InterruptedException ignored) {
               }
             }
